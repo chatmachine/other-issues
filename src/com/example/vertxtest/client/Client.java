@@ -17,6 +17,7 @@ public class Client {
 		HttpClientOptions httpClientOptions = new HttpClientOptions();
 		httpClientOptions.setMaxPoolSize(1);
 		httpClientOptions.setMaxWaitQueueSize(3);
+		httpClientOptions.setIdleTimeout(200);
 		HttpClient httpClient = clientVertx.createHttpClient(httpClientOptions);
 		
 		//This first request will block the pool for 15 seconds
@@ -25,7 +26,7 @@ public class Client {
 		});
 		req1.handler(resp->{
 			log.info("Request 1 request recieved response.");
-			req1.setTimeout(15000);
+			//req1.setTimeout(15000);
 		});
 		req1.end();
 		
