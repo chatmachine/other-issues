@@ -26,7 +26,7 @@ public class Client {
 		});
 		req1.handler(resp->{
 			log.info("Request 1 request recieved response.");
-			//req1.setTimeout(15000);
+			req1.setTimeout(15000);
 		});
 		req1.end();
 		
